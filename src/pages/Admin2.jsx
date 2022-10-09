@@ -4,10 +4,13 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Alert } from '@mui/material';
+import Snackbar from '@mui/material/Snackbar';
 
 function Admin2() {
 
     const navigate = useNavigate();
+    const [open, setOpen] = useState(false);
     const [UserLoading, setUserLoading] = React.useState(false)
     const [AllUsers, setAllUsers] = useState([])
     const [AdminLoading, setAdminLoading] = React.useState(false)
@@ -16,7 +19,20 @@ function Admin2() {
     const [AllCategory, setAllCategory] = useState([])
     const [AllPendingOrder, setAllPendingOrder] = useState([])
     const [AllDeliveredOrder, setAllDeliveredOrder] = useState([])
+    const [AlertMessage, setAlertMessage] = useState("");
+    const [AlertMessageBg, setAlertMessageBg] = useState("");
     const gettingUserDetails = useSelector(state => state.UserDetail)
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpen(false);
+    };
 
     // {
     //     React.useEffect(() => {
@@ -104,9 +120,101 @@ function Admin2() {
         }, [])
     }
 
+    async function ChangeStatusAdmin(userId) {
+        let role = "admin"
+        let data = { role }
+        let result = await fetch(`http://localhost:5000/auth/change_user_role/${userId}`, {
+            method: "PATCH",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        let output = ""
+        output = await result.json()
+        if (output.affected === 1) {
+            setAlertMessageBg('#218838')
+            setAlertMessage("Status Changed Successfully")
+            fetch(`http://localhost:5000/auth`).then((result) => {
+                result.json().then((resp) => {
+                    setAllUsers(resp)
+                    // dispatch(HomepageDataSave(resp))
+                })
+            })
+            handleClick()
+        } else {
+            setAlertMessageBg('#C82333')
+            setAlertMessage("Something Went Wrong")
+            handleClick()
+        }
+    }
+
+    async function ChangeStatusUser(userId) {
+        let role = "user"
+        let data = { role }
+        let result = await fetch(`http://localhost:5000/auth/change_user_role/${userId}`, {
+            method: "PATCH",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        let output = ""
+        output = await result.json()
+        if (output.affected === 1) {
+            setAlertMessageBg('#218838')
+            setAlertMessage("Status Changed Successfully")
+            fetch(`http://localhost:5000/auth`).then((result) => {
+                result.json().then((resp) => {
+                    setAllUsers(resp)
+                    // dispatch(HomepageDataSave(resp))
+                })
+            })
+            handleClick()
+        } else {
+            setAlertMessageBg('#C82333')
+            setAlertMessage("Something Went Wrong")
+            handleClick()
+        }
+    }
+
+    async function ChangeStatusDelete(userId) {
+        let role = "delete"
+        let data = { role }
+        let result = await fetch(`http://localhost:5000/auth/change_user_role/${userId}`, {
+            method: "PATCH",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        let output = ""
+        output = await result.json()
+        if (output.affected === 1) {
+            setAlertMessageBg('#218838')
+            setAlertMessage("Status Changed Successfully")
+            fetch(`http://localhost:5000/auth`).then((result) => {
+                result.json().then((resp) => {
+                    setAllUsers(resp)
+                    // dispatch(HomepageDataSave(resp))
+                })
+            })
+            handleClick()
+        } else {
+            setAlertMessageBg('#C82333')
+            setAlertMessage("Something Went Wrong")
+            handleClick()
+        }
+    }
+
     return (
         // <h1 className="text-center">Admin</h1>
         <div style={{ marginTop: '80px' }}>
+            <Snackbar open={open} autoHideDuration={2000} onClose={handleClose}>
+                <Alert onClose={handleClose} className={`text-white`} style={{ background: AlertMessageBg }}>
+                    {AlertMessage}
+                </Alert>
+            </Snackbar>
             <div className="row">
                 <div className="col-xl-3 col-xxl-2">
                     <div className="leftSidebarAdmin mt-2" style={{ minHeight: '100vh', height: "100%", background: '#1F2937' }}>
