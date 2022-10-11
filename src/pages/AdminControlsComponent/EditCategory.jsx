@@ -27,7 +27,7 @@ function EditCategory() {
 
     {
         React.useEffect(() => {
-            fetch(`http://localhost:5000/Category/single_category/${categoryId}`).then((result) => {
+            fetch(`https://ghee.tryme.info/Category/single_category/${categoryId}`).then((result) => {
                 result.json().then((resp) => {
                     setSingleCategoryDetails(resp)
                     setCategoryTitle(resp[0].Title)
