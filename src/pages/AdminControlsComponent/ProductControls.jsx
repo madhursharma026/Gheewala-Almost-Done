@@ -27,7 +27,7 @@ function ProductControl() {
 
     {
         useEffect(() => {
-            fetch(`http://localhost:5000/Product`).then((result) => {
+            fetch(`https://ghee.tryme.info/Product`).then((result) => {
                 result.json().then((resp) => {
                     setAllProduct(resp)
                     setloading(true)
