@@ -30,7 +30,7 @@ function EditProfile() {
         let name = userName
         let address = userAddress
         let data = { name, address }
-        let result = await fetch(`http://localhost:5000/auth/updated_profile/${gettingUserDetails[0].userId}`, {
+        let result = await fetch(`https://ghee.tryme.info/auth/updated_profile/${gettingUserDetails[0].userId}`, {
             method: "PATCH",
             body: JSON.stringify(data),
             headers: {
