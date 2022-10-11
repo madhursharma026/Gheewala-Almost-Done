@@ -28,7 +28,7 @@ function ResetPassword() {
         if (newPassword === confirmNewPassword) {
             let password = newPassword
             let data = { password }
-            let result = await fetch(`http://localhost:5000/auth/updated_password/${gettingUserDetails[0].userId}`, {
+            let result = await fetch(`https://ghee.tryme.info/auth/updated_password/${gettingUserDetails[0].userId}`, {
                 method: "PATCH",
                 body: JSON.stringify(data),
                 headers: {
