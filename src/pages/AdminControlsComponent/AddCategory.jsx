@@ -28,7 +28,7 @@ function AddCategory() {
         formdata.append("Title", CategoryTitle);
         formdata.append("CategoryImage", CategoryImage);
         // let data = { formdata }
-        let result = await fetch(`http://localhost:5000/Category/add_category`, {
+        let result = await fetch(`https://ghee.tryme.info/Category/add_category`, {
             method: "POST",
             body: formdata
         })
