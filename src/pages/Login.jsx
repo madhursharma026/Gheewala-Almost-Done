@@ -55,7 +55,7 @@ function Login() {
     let email = gettingLoginEmail
     let password = gettingLoginPassword
     let data = { email, password }
-    let result = await fetch(`http://127.0.0.1:5000/auth/login`, {
+    let result = await fetch(`https://ghee.tryme.info/auth/login`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
