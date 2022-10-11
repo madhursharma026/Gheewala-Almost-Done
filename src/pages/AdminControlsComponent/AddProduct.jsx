@@ -40,7 +40,7 @@ function AddProduct() {
         formdata.append("ShortDescription", ShortDescription);
 
         // let data = { formdata }
-        let result = await fetch(`http://localhost:5000/Product/add_product/categoryId=${ProductCategoryId}`, {
+        let result = await fetch(`https://ghee.tryme.info/Product/add_product/categoryId=${ProductCategoryId}`, {
             method: "POST",
             body: formdata
         })
@@ -71,7 +71,7 @@ function AddProduct() {
 
     {
         useEffect(() => {
-            fetch(`http://localhost:5000/Category`).then((result) => {
+            fetch(`https://ghee.tryme.info/Category`).then((result) => {
                 result.json().then((resp) => {
                     setAllCategory(resp)
                     // dispatch(HomepageDataSave(resp))
