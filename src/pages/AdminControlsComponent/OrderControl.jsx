@@ -28,7 +28,7 @@ function OrderControl() {
 
     {
         useEffect(() => {
-            fetch(`http://localhost:5000/Order`).then((result) => {
+            fetch(`https://ghee.tryme.info/Order`).then((result) => {
                 result.json().then((resp) => {
                     setAllOrders(resp)
                     setloading(true)
@@ -42,7 +42,7 @@ function OrderControl() {
         setloading(false)
         let DeliveryStatus = "Delivered"
         let data = { DeliveryStatus }
-        let result = await fetch(`http://localhost:5000/order/${orderedProductId}`, {
+        let result = await fetch(`https://ghee.tryme.info/order/${orderedProductId}`, {
             method: "PATCH",
             body: JSON.stringify(data),
             headers: {
@@ -54,7 +54,7 @@ function OrderControl() {
         if (output.affected === 1) {
             setAlertMessageBg('#218838')
             setAlertMessage("Status Changed Successfully")
-            fetch(`http://localhost:5000/Order`).then((result) => {
+            fetch(`https://ghee.tryme.info/Order`).then((result) => {
                 result.json().then((resp) => {
                     setAllOrders(resp)
                     setloading(true)
