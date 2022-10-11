@@ -117,7 +117,7 @@ function Home() {
             <Link to="/buffalo-ghee" style={{ textDecoration: "none" }}>
               <ProductCardStyle
                 number="1"
-                productImg={`http://localhost:5000/public/${item2.ProductImage}`}
+                productImg={`https://ghee.tryme.info/public/${item2.ProductImage}`}
                 ratingQty="15"
                 productName={item2.Title}
                 productCategory="Pure Desi Ghee"
@@ -141,7 +141,7 @@ function Home() {
             <Link to="/cow-ghee" style={{ textDecoration: "none" }}>
               <ProductCardStyle
                 number="2"
-                productImg={`http://localhost:5000/public/${item.ProductImage}`}
+                productImg={`https://ghee.tryme.info/public/${item.ProductImage}`}
                 ratingQty="15"
                 productName={item.Title}
                 productCategory="Pure Desi Ghee"
