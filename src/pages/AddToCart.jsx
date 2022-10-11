@@ -85,7 +85,7 @@ const AddToCart = () => {
             amount: amount * 100,
             name: gettingUserDetails[0].name,
             description: "Thanks for Purchasing",
-            image: 'http://localhost:3000/static/media/logo.feabe944101600d0679d.png',
+            image: 'https://ghee.tryme.info/static/media/logo.feabe944101600d0679d.png',
             handler: function (response) {
                 // alert(response.razorpay_payment_id)
                 handleClick()
@@ -110,7 +110,7 @@ const AddToCart = () => {
                 let productId = (item.id)
                 let Qty = BuffaloGheeQty
                 let data = { Qty }
-                let result = await fetch(`http://localhost:5000/order/place_order/userId=${userId}/productId=${productId}`, {
+                let result = await fetch(`https://ghee.tryme.info/order/place_order/userId=${userId}/productId=${productId}`, {
                     method: "POST",
                     body: JSON.stringify(data),
                     headers: {
@@ -134,7 +134,7 @@ const AddToCart = () => {
                 let productId = (item2.id)
                 let Qty = CowGheeQty
                 let data = { Qty }
-                let result = await fetch(`http://localhost:5000/order/place_order/userId=${userId}/productId=${productId}`, {
+                let result = await fetch(`https://ghee.tryme.info/order/place_order/userId=${userId}/productId=${productId}`, {
                     method: "POST",
                     body: JSON.stringify(data),
                     headers: {
