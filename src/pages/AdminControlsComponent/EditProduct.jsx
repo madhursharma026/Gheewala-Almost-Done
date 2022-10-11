@@ -41,7 +41,7 @@ function EditProduct() {
 
     {
         React.useEffect(() => {
-            fetch(`http://localhost:5000/Product/single_product/${productId}`).then((result) => {
+            fetch(`https://ghee.tryme.info/Product/single_product/${productId}`).then((result) => {
                 result.json().then((resp) => {
                     setSingleProductDetails(resp)
                     // setCategoryTitle(resp[0].Title)
