@@ -15,7 +15,7 @@ function MyOrder() {
             if (gettingUserDetails.length === 0) {
                 navigate("/login")
             } else {
-                fetch(`http://localhost:5000/order/user_profile/${gettingUserDetails[0].userId}`).then((result) => {
+                fetch(`https://ghee.tryme.info/order/user_profile/${gettingUserDetails[0].userId}`).then((result) => {
                     result.json().then((resp) => {
                         setAllOrders(resp)
                         console.log(resp)
