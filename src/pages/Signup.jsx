@@ -57,7 +57,7 @@ function Signup() {
       let address = gettingAddress
       let name = gettingName
       let data = { email, password, address, name }
-      let result = await fetch(`http://127.0.0.1:5000/auth/signup`, {
+      let result = await fetch(`https://ghee.tryme.info/auth/signup`, {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
