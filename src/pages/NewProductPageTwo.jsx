@@ -44,7 +44,7 @@ function NewProductPageTwo() {
 
   {
     React.useEffect(() => {
-      fetch(`http://127.0.0.1:5000/product`).then((result) => {
+      fetch(`https://ghee.tryme.info/product`).then((result) => {
         result.json().then((resp) => {
           setItem(resp[1])
           setItem2(resp[0])
@@ -68,7 +68,7 @@ function NewProductPageTwo() {
               <div class="carousel-item active">
                 <div className="px-5">
                   <img
-                    src={`http://localhost:5000/public/${item2.ProductImage}`}
+                    src={`https://ghee.tryme.info/public/${item2.ProductImage}`}
                     class="d-block w-100"
                     alt="#ImgNotFound"
                   />
@@ -77,7 +77,7 @@ function NewProductPageTwo() {
               <div class="carousel-item">
                 <div className="px-5">
                   <img
-                    src={`http://localhost:5000/public/${item2.ProductImage}`}
+                    src={`https://ghee.tryme.info/public/${item2.ProductImage}`}
                     class="d-block w-100"
                     alt="#ImgNotFound"
                   />
@@ -86,7 +86,7 @@ function NewProductPageTwo() {
               <div class="carousel-item">
                 <div className="px-5">
                   <img
-                    src={`http://localhost:5000/public/${item2.ProductImage}`}
+                    src={`https://ghee.tryme.info/public/${item2.ProductImage}`}
                     class="d-block w-100"
                     alt="#ImgNotFound"
                   />
@@ -95,7 +95,7 @@ function NewProductPageTwo() {
               <div class="carousel-item">
                 <div className="px-5">
                   <img
-                    src={`http://localhost:5000/public/${item2.ProductImage}`}
+                    src={`https://ghee.tryme.info/public/${item2.ProductImage}`}
                     class="d-block w-100"
                     alt="#ImgNotFound"
                   />
@@ -104,7 +104,7 @@ function NewProductPageTwo() {
               <div class="carousel-item">
                 <div className="px-5">
                   <img
-                    src={`http://localhost:5000/public/${item2.ProductImage}`}
+                    src={`https://ghee.tryme.info/public/${item2.ProductImage}`}
                     class="d-block w-100"
                     alt="#ImgNotFound"
                   />
