@@ -27,7 +27,7 @@ function CategoryControl() {
 
     {
         useEffect(() => {
-            fetch(`http://localhost:5000/Category`).then((result) => {
+            fetch(`https://ghee.tryme.info/Category`).then((result) => {
                 result.json().then((resp) => {
                     setAllCategory(resp)
                     setloading(true)
@@ -43,7 +43,7 @@ function CategoryControl() {
     }
 
     async function deleteCategory(categoryId) {
-        let result = await fetch(`http://localhost:5000/Category/${categoryId}`, {
+        let result = await fetch(`https://ghee.tryme.info/Category/${categoryId}`, {
             method: "Delete"
         })
         // let output = ""
@@ -53,7 +53,7 @@ function CategoryControl() {
             setAlertMessageBg('#218838')
             setAlertMessage("Category Deleted Successfully")
             handleClick()
-            fetch(`http://localhost:5000/Category`).then((result) => {
+            fetch(`https://ghee.tryme.info/Category`).then((result) => {
                 result.json().then((resp) => {
                     setAllCategory(resp)
                     setloading(true)
